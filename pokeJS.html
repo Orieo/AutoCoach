@@ -1,0 +1,88 @@
+<script>
+
+$(document).ready(function() {
+
+$('#dataDropdown').on("click", function(){
+google.script.run.updateDropdown();
+});
+
+$('#emailList').on('blur', '[contenteditable]', function(){
+
+var code = $(this).text();
+if(code == ""){
+code = "Poke";
+$(this).text("Poke");
+}
+var slot = $(this).next().next().next().attr('data-slot');
+var props = $(this).next().next().next().text();
+
+var propObj = JSON.parse(props);
+propObj.code = code;
+var newProps = JSON.stringify(propObj);
+
+$(this).next().next().next().text(newProps);
+google.script.run.setSlotProperty(slot, newProps);
+
+
+});
+
+$('#emailList').on('click', '#edit', function() {
+
+var obj = JSON.parse($(this).parent().next().next().text());
+
+$(this).parent().next().find('.slotForm').find("#subjectIn").val(obj.subject);
+$(this).parent().next().find('.slotForm').find("#logIn").val(obj.log);
+
+$(this).parent().next().toggle();
+});
+
+
+$('#emailList').on('click','#save', function () {
+
+var slot = $(this).parent().parent().parent().next().attr("data-slot");
+
+var logMessage = $(this).parent().parent().find('#logIn').val();
+var subject = $(this).parent().parent().find('#subjectIn').val();
+
+var slotPropertyText = $(this).parent().parent().parent().next().text();
+var slotObj = JSON.parse(slotPropertyText);
+slotObj.subject = subject;
+slotObj.log = logMessage;
+
+if(slotObj.trigger == "" || slotObj.template == "") {
+//disable email
+}
+
+var newStr = JSON.stringify(slotObj);
+$(this).parent().parent().parent().next().text(newStr);
+google.script.run.setSlotProperty(slot, newStr);
+
+$(this).parent().parent().find('#slotSaved').show();
+$(this).parent().parent().find('#slotSaved').delay(5000).hide(1);
+
+});
+
+$('#emailList').on("click","#reset",function(){
+
+var slot = $(this).parent().parent().parent().next().attr("data-slot");
+
+$(this).parent().parent().find('#logIn').val("");
+$(this).parent().parent().find('#subjectIn').val("");
+
+$(this).parent().parent().parent().parent().find("h3").text("Poke");
+$(this).parent().parent().parent().next().text('{"code":"Poke","subject":"",log":""}');
+google.script.run.setSlotProperty(slot, '{"code":"Poke","subject":"","log":""}');
+});
+
+
+
+
+});
+
+
+</script>
+
+
+
+
+

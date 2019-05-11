@@ -1,0 +1,146 @@
+<script>
+
+$(document).ready(function() {
+
+
+$('#emailList').on('click', '#edit', function() {
+
+var obj = JSON.parse($(this).parent().next().next().text());
+
+$(this).parent().next().find('.slotForm').find("#triggerIn").val(obj.trigger);
+$(this).parent().next().find('.slotForm').find("#subjectIn").val(obj.subject);
+$(this).parent().next().find('.slotForm').find("#logIn").val(obj.log);
+
+$(this).parent().next().toggle();
+});
+
+
+$('#emailList').on('click','#save', function () {
+
+var slot = $(this).parent().parent().parent().next().attr("data-slot");
+
+var logMessage = $(this).parent().parent().find('#logIn').val();
+var subject = $(this).parent().parent().find('#subjectIn').val();
+var trigger = $(this).parent().parent().find('#triggerIn').val();
+
+var slotPropertyText = $(this).parent().parent().parent().next().text();
+var slotObj = JSON.parse(slotPropertyText);
+slotObj.trigger = trigger;
+slotObj.subject = subject;
+slotObj.log = logMessage;
+
+if(slotObj.trigger == "" || slotObj.template == "") {
+//disable email
+}
+
+var newStr = JSON.stringify(slotObj);
+$(this).parent().parent().parent().next().text(newStr);
+google.script.run.setSlotProperty(slot, newStr);
+
+$(this).parent().parent().find('#slotSaved').show();
+$(this).parent().parent().find('#slotSaved').delay(5000).hide(1);
+
+});
+
+$('#emailList').on("click","#reset",function(){
+
+var slot = $(this).parent().parent().parent().next().attr("data-slot");
+
+$(this).parent().parent().find('#logIn').val("");
+$(this).parent().parent().find('#subjectIn').val("");
+$(this).parent().parent().find('#triggerIn').val("");
+
+$(this).parent().parent().parent().next().text('{"trigger":"","subject":"","log":""}');
+google.script.run.setSlotProperty(slot, '{"trigger":"","subject":"","log":""}');
+
+
+});
+
+$('#saveConfig').click(function(){
+
+var logId = $('#logFileIn').val();
+
+
+var timer = $('#timerIn').val();
+
+if(timer == "On") {
+google.script.run.setTimer("On");
+}else{
+google.script.run.setTimer("Off");
+}
+
+var testEmail = $('#testEmailIn').val();
+
+if(testEmail == undefined){
+testEmail = 'none';
+}
+
+var sendTo = $('#sendToIn').val();
+
+if(sendTo == undefined){
+sendTo = "No"
+}
+
+var startTime = $('#startTimeIn').val();
+
+var endTime = $('#endTimeIn').val();
+
+var slotPropertyText = $(this).parent().parent().next().text();
+
+var config = JSON.parse(slotPropertyText);
+config.logId = logId;
+config.timer = timer;
+config.testEmail = testEmail;
+config.sendTo = sendTo;
+config.startTime = startTime;
+config.endTime = endTime;
+var tmpStr = JSON.stringify(config);
+google.script.run.setSlotProperty("config", tmpStr);
+$(this).parent().parent().next().text(tmpStr.toString());
+
+$('#configSaved').show();
+$('#configSaved').delay(5000).hide(1);
+
+});
+
+$('#resetConfig').click(function(){
+$('#logFileIn').val("");
+$('#timerIn').val("Off");
+$('#testEmailIn').val("");
+$('#sendToIn').val("");
+$('#startTimeIn').val("");
+$('#endTimeIn').val("");
+
+
+$(this).parent().parent().next().text('{"sendTo":"No","testEmail":"","timer":"Off","logId":"","startTime":"","endTime":""}');
+
+google.script.run.setSlotProperty('config','{"sendTo":"No","testEmail":"","timer":"Off","logId":"","startTime":"","endTime":""}');
+google.script.run.setTimer("Off");
+});
+
+$('#settingsEdit').click(function(){
+
+var objProp = $(this).parent().next().next().text();
+
+var obj = JSON.parse(objProp);
+$('#logFileIn').val(obj.logId);
+$('#timerIn').val(obj.timer);
+$('#testEmailIn').val(obj.testEmail);
+$('#sendToIn').val(obj.sendTo);
+$('#startTimeIn').val(obj.startTime);
+$('#endTimeIn').val(obj.endTime);
+
+$('#configSaved').hide();
+$(this).parent().next().toggle();
+
+});
+
+});
+
+
+</script>
+
+
+
+
+

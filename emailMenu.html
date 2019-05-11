@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <base target="_top">
+
+    <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/smoothness/jquery-ui.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+
+    <?!= include('css');?>
+    <?!= insert('javascript');?>
+
+  </head>
+  
+  <?var subType = authorize();?>
+  <?var labels = getLabels();?>
+  <?var templates = getTemplates("AC Step Emails");?>
+  <div class='content'>
+  
+      <div class='desc'>
+        <body>Add a label and the URL of the Google Doc email body that you would like to recieve upon recieving an email with that label.</body>
+      </div><br>
+      
+      
+      <div id='slotEmails'>
+      <?var names = SpreadsheetApp.getActive().getSheetByName("Email Tracker").getSheetValues(1, 8, 1, 8)[0];?>
+        <ul id='emailList'>
+        
+          <li id="configItem">
+            <div>
+              <h3>Config</h3>
+              <?if(subType >= 1){ ?>
+              <div id="itemButtons"><i class="material-icons" id="settingsEdit">settings</i></div>
+              <?}else{?>
+              <div id="itemButtons"><i class="material-icons" id="disabled">clear</i></div>
+              <?}?>
+              <div class='settingsEmail'>
+                <br>
+                <strong id='timerLabel'>Timer: </strong><br><select id='timerIn'><option value='On'>On</option><option value='Off'>Off</option></select>
+                <br><br><strong>Send Emails Between:</strong><br><input type='text' id='startTimeIn' size='2'>
+                <body> and </body><input type='text' id='endTimeIn'  size='2'><br><br>
+                <strong id='settingsLabel'>Send Emails To: </strong><br><select id='sendToIn'><option value='No'>Don't Send Emails</option>
+                <option value='Client'>Clients</option><option value='Test'>Test Email</option></select><br><br>
+                <strong>Test Email: </strong><br><input type='text'id='testEmailIn' placeholder='test.email@domain.com'><br><br>
+                <strong>Log File: </strong><br><input type='text'id='logFileIn' placeholder='Google Doc ID'><br><br>
+                <div class="saveText" id="configSaved">Saved</div>
+                <div class='saveButtons'><button id="saveConfig" value="Save">Save</button><button id="resetConfig" value="Reset">Reset</button></div>
+                <br><br>
+              </div>
+              <div class='hidden' data-slot="config"><?!= PropertiesService.getDocumentProperties().getProperty("config")?></div>
+
+            </div>
+          </li>
+          
+          <br>
+          
+          <li>      
+            <div>
+              <h3><?= names[0]; ?></h3>
+              <?if(subType >= 1){ ?>
+              <div id="itemButtons"><i class="material-icons" id="edit">settings</i></div>
+              <?}else{?>
+              <div id="itemButtons"><i class="material-icons" id="disabled">clear</i></div>
+              <?}?>
+              <div class="form">
+                <div class="slotForm">
+                  <br><br><strong id='triggerLabel'>Trigger Label: </strong><br><select id="triggerIn"><?!=labels?></select><br><br>
+                  <strong>Template Subject: </strong><br><select id="subjectIn"><?!=templates?></select><br><br>
+                  <strong>Log Message: </strong><br><input type="text" id="logIn" placeholder="Log Message" width="250"><br><br>
+                  <div class="saveText" id="slotSaved">Saved</div>
+                  <div class='saveButtons'><button id="save" value="Save">Save</button><button id="reset" value="Reset">Reset</button></div>
+                </div>
+              </div>
+              <div class="hidden" data-slot="slot1"><?!= PropertiesService.getDocumentProperties().getProperty("slot1")?></div>
+            </div>
+          </li>
+          <li>      
+            <div>
+              <h3><?= names[1]; ?></h3>
+              <?if(subType >= 1){ ?>
+              <div id="itemButtons"><i class="material-icons" id="edit">settings</i></div>
+              <?}else{?>
+              <div id="itemButtons"><i class="material-icons" id="disabled">clear</i></div>
+              <?}?>
+              <div class="form">
+                <div class="slotForm">
+                  <br><br><strong id='triggerLabel'>Trigger Label: </strong><br><select id="triggerIn"><?!=labels?></select><br><br>
+                  <strong>Template Subject: </strong><br><select id="subjectIn"><?!=templates?></select><br><br>
+                  <strong>Log Message: </strong><br><input type="text" id="logIn" placeholder="Log Message" width="250"><br><br>
+                  <div class="saveText" id="slotSaved">Saved</div>
+                  <div class='saveButtons'><button id="save" value="Save">Save</button><button id="reset" value="Reset">Reset</button></div>
+                </div>
+              </div>
+              <div class="hidden" data-slot="slot2"><?!= PropertiesService.getDocumentProperties().getProperty("slot2")?></div>
+            </div>
+          </li>
+          <li>      
+            <div>
+              <h3><?= names[2]; ?></h3>
+              <?if(subType >= 1){ ?>
+              <div id="itemButtons"><i class="material-icons" id="edit">settings</i></div>
+              <?}else{?>
+              <div id="itemButtons"><i class="material-icons" id="disabled">clear</i></div>
+              <?}?>
+              <div class="form">
+                <div class="slotForm">
+                  <br><br><strong id='triggerLabel'>Trigger Label: </strong><br><select id="triggerIn"><?!=labels?></select><br><br>
+                  <strong>Template Subject: </strong><br><select id="subjectIn"><?!=templates?></select><br><br>
+                  <strong>Log Message: </strong><br><input type="text" id="logIn" placeholder="Log Message" width="250"><br><br>
+                  <div class="saveText" id="slotSaved">Saved</div>
+                  <div class='saveButtons'><button id="save" value="Save">Save</button><button id="reset" value="Reset">Reset</button></div>
+                </div>
+              </div>
+              <div class="hidden" data-slot="slot3"><?!= PropertiesService.getDocumentProperties().getProperty("slot3")?></div>
+            </div>
+          </li>
+          <li>      
+            <div>
+              <h3><?= names[3]; ?></h3>
+              <?if(subType >= 1){ ?>
+              <div id="itemButtons"><i class="material-icons" id="edit">settings</i></div>
+              <?}else{?>
+              <div id="itemButtons"><i class="material-icons" id="disabled">clear</i></div>
+              <?}?>
+              <div class="form">
+                <div class="slotForm">
+                  <br><br><strong id='triggerLabel'>Trigger Label: </strong><br><select id="triggerIn"><?!=labels?></select><br><br>
+                  <strong>Template Subject: </strong><br><select id="subjectIn"><?!=templates?></select><br><br>
+                  <strong>Log Message: </strong><br><input type="text" id="logIn" placeholder="Log Message" width="250"><br><br>
+                  <div class="saveText" id="slotSaved">Saved</div>
+                  <div class='saveButtons'><button id="save" value="Save">Save</button><button id="reset" value="Reset">Reset</button></div>
+                </div>
+              </div>
+              <div class="hidden" data-slot="slot4"><?!= PropertiesService.getDocumentProperties().getProperty("slot4")?></div>
+            </div>
+          </li>
+          <li>      
+            <div>
+              <h3><?= names[4]; ?></h3>
+              <?if(subType >= 1){ ?>
+              <div id="itemButtons"><i class="material-icons" id="edit">settings</i></div>
+              <?}else{?>
+              <div id="itemButtons"><i class="material-icons" id="disabled">clear</i></div>
+              <?}?>
+              <div class="form">
+                <div class="slotForm">
+                  <br><br><strong id='triggerLabel'>Trigger Label: </strong><br><select id="triggerIn"><?!=labels?></select><br><br>
+                  <strong>Template Subject: </strong><br><select id="subjectIn"><?!=templates?></select><br><br>
+                  <strong>Log Message: </strong><br><input type="text" id="logIn" placeholder="Log Message" width="250"><br><br>
+                  <div class="saveText" id="slotSaved">Saved</div>
+                  <div class='saveButtons'><button id="save" value="Save">Save</button><button id="reset" value="Reset">Reset</button></div>
+                </div>
+              </div>
+              <div class="hidden" data-slot="slot5"><?!= PropertiesService.getDocumentProperties().getProperty("slot5")?></div>
+            </div>
+          </li>
+          <li>      
+            <div>
+              <h3><?= names[5]; ?></h3>
+              <?if(subType >= 1){ ?>
+              <div id="itemButtons"><i class="material-icons" id="edit">settings</i></div>
+              <?}else{?>
+              <div id="itemButtons"><i class="material-icons" id="disabled">clear</i></div>
+              <?}?>
+              <div class="form">
+                <div class="slotForm">
+                  <br><br><strong id='triggerLabel'>Trigger Label: </strong><br><select id="triggerIn"><?!=labels?></select><br><br>
+                  <strong>Template Subject: </strong><br><select id="subjectIn"><?!=templates?></select><br><br>
+                  <strong>Log Message: </strong><br><input type="text" id="logIn" placeholder="Log Message" width="250"><br><br>
+                  <div class="saveText" id="slotSaved">Saved</div>
+                  <div class='saveButtons'><button id="save" value="Save">Save</button><button id="reset" value="Reset">Reset</button></div>
+                </div>
+              </div>
+              <div class="hidden" data-slot="slot6"><?!= PropertiesService.getDocumentProperties().getProperty("slot6")?></div>
+            </div>
+          </li>
+          <li>      
+            <div>
+              <h3><?= names[6]; ?></h3>
+              <?if(subType >= 1){ ?>
+              <div id="itemButtons"><i class="material-icons" id="edit">settings</i></div>
+              <?}else{?>
+              <div id="itemButtons"><i class="material-icons" id="disabled">clear</i></div>
+              <?}?>
+              <div class="form">
+                <div class="slotForm">
+                  <br><br><strong id='triggerLabel'>Trigger Label: </strong><br><select id="triggerIn"><?!=labels?></select><br><br>
+                  <strong>Template Subject: </strong><br><select id="subjectIn"><?!=templates?></select><br><br>
+                  <strong>Log Message: </strong><br><input type="text" id="logIn" placeholder="Log Message" width="250"><br><br>
+                  <div class="saveText" id="slotSaved">Saved</div>
+                  <div class='saveButtons'><button id="save" value="Save">Save</button><button id="reset" value="Reset">Reset</button></div>
+                </div>
+              </div>
+              <div class="hidden" data-slot="slot7"><?!= PropertiesService.getDocumentProperties().getProperty("slot7")?></div>
+            </div>
+          </li>
+          <li>      
+            <div>
+              <h3><?= names[7]; ?></h3>
+              <?if(subType >= 1){ ?>
+              <div id="itemButtons"><i class="material-icons" id="edit">settings</i></div>
+              <?}else{?>
+              <div id="itemButtons"><i class="material-icons" id="disabled">clear</i></div>
+              <?}?>
+              <div class="form">
+                <div class="slotForm">
+                  <br><br><strong id='triggerLabel'>Trigger Label: </strong><br><select id="triggerIn"><?!=labels?></select><br><br>
+                  <strong>Template Subject: </strong><br><select id="subjectIn"><?!=templates?></select><br><br>
+                  <strong>Log Message: </strong><br><input type="text" id="logIn" placeholder="Log Message" width="250"><br><br>
+                  <div class="saveText" id="slotSaved">Saved</div>
+                  <div class='saveButtons'><button id="save" value="Save">Save</button><button id="reset" value="Reset">Reset</button></div>
+                </div>
+              </div>
+              <div class="hidden" data-slot="slot8"><?!= PropertiesService.getDocumentProperties().getProperty("slot8")?></div>
+            </div>
+          </li>
+
+
+        </ul>
+      </div>
+      
+      
+    </div>  
+</html>
+
+
+
+
