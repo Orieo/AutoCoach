@@ -1,0 +1,19 @@
+{
+    "app": {
+      "background": {
+        "scripts": [
+          "Code.gs",
+          "Sidebar.gs"
+        ]
+      }
+    },
+    "manifest_version": 2,
+    "name": "Active Systemize",
+    "version": "1.0",
+    "description": "A business coach CRM",
+    "icons": {
+        "128": "resources/acIcon.jpg"
+    },
+    "short_name": "AC",
+    "version_name": "Stable"
+  }
