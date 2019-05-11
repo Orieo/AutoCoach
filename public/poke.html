@@ -9,25 +9,25 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
 
-    <?!= include('css');?>
-    <?!= insert('teamJS');?>
+    <?!= include('public/css');?>
+    <?!= insert('public/pokeJS');?>
 
   </head>
   
   <?var subType = authorize();?>
-  <?var templates = getTemplates("AC Team Emails");?>
+  <?var templates = getTemplates("AC Engmt Emails");?>
   
   <div class='content'>
       <br>
-      <button id='dataDropdown'>Update Team Communications Dropdown</button>
+      <button id='dataDropdown'>Update Engagement Email Dropdown</button>
       
       <div id='slotEmails'>
         <ul id='emailList'>
           
           <li>      
             <div>
-              <? var prop = PropertiesService.getDocumentProperties().getProperty("team1")?>
-              <h3 id='team1h' contenteditable="true"><?!= JSON.parse(prop).code ?></h3>
+              <? var prop = PropertiesService.getDocumentProperties().getProperty("poke1")?>
+              <h3 id='poke1h' contenteditable="true"><?!= JSON.parse(prop).code ?></h3>
               
               <?if(subType >= 1){ ?>
               <div id="itemButtons"><i class="material-icons" id="edit">settings</i></div>
@@ -44,13 +44,13 @@
                   <div class='saveButtons'><button id="save" value="Save">Save</button><button id="reset" value="Reset">Reset</button></div>
                 </div>
               </div>
-              <div class="hidden" data-slot="team1"><?!= prop ?></div>
+              <div class="hidden" data-slot="poke1"><?!= prop ?></div>
             </div>
           </li>
           <li>      
             <div>
-              <? var prop = PropertiesService.getDocumentProperties().getProperty("team2")?>
-              <h3 id='team2h' contenteditable="true"><?!= JSON.parse(prop).code ?></h3>
+              <? var prop = PropertiesService.getDocumentProperties().getProperty("poke2")?>
+              <h3 id='poke2h' contenteditable="true"><?!= JSON.parse(prop).code ?></h3>
               <?if(subType >= 1){ ?>
               <div id="itemButtons"><i class="material-icons" id="edit">settings</i></div>
               <?}else{?>
@@ -65,13 +65,13 @@
                   <div class='saveButtons'><button id="save" value="Save">Save</button><button id="reset" value="Reset">Reset</button></div>
                 </div>
               </div>
-              <div class="hidden" data-slot="team2"><?!= prop ?></div>
+              <div class="hidden" data-slot="poke2"><?!= prop ?></div>
             </div>
           </li>
           <li>      
             <div>
-              <? var prop = PropertiesService.getDocumentProperties().getProperty("team3")?>
-              <h3 id='team3h' contenteditable="true"><?!= JSON.parse(prop).code ?></h3>
+              <? var prop = PropertiesService.getDocumentProperties().getProperty("poke3")?>
+              <h3 id='poke3h' contenteditable="true"><?!= JSON.parse(prop).code ?></h3>
               <?if(subType >= 1){ ?>
               <div id="itemButtons"><i class="material-icons" id="edit">settings</i></div>
               <?}else{?>
@@ -86,13 +86,13 @@
                   <div class='saveButtons'><button id="save" value="Save">Save</button><button id="reset" value="Reset">Reset</button></div>
                 </div>
               </div>
-              <div class="hidden" data-slot="team3"><?!= prop ?></div>
+              <div class="hidden" data-slot="poke3"><?!= prop ?></div>
             </div>
           </li>
           <li>      
             <div>
-              <? var prop = PropertiesService.getDocumentProperties().getProperty("team4")?>
-              <h3 id='team4h' contenteditable="true"><?!= JSON.parse(prop).code ?></h3>
+              <? var prop = PropertiesService.getDocumentProperties().getProperty("poke4")?>
+              <h3 id='poke4h' contenteditable="true"><?!= JSON.parse(prop).code ?></h3>
               <?if(subType >= 1){ ?>
               <div id="itemButtons"><i class="material-icons" id="edit">settings</i></div>
               <?}else{?>
@@ -107,13 +107,13 @@
                   <div class='saveButtons'><button id="save" value="Save">Save</button><button id="reset" value="Reset">Reset</button></div>
                 </div>
               </div>
-              <div class="hidden" data-slot="team4"><?!= prop ?></div>
+              <div class="hidden" data-slot="poke4"><?!= prop ?></div>
             </div>
           </li>
           <li>      
             <div>
-              <? var prop = PropertiesService.getDocumentProperties().getProperty("team5")?>
-              <h3 id='team5h' contenteditable="true"><?!= JSON.parse(prop).code ?></h3>
+              <? var prop = PropertiesService.getDocumentProperties().getProperty("poke5")?>
+              <h3 id='poke5h' contenteditable="true"><?!= JSON.parse(prop).code ?></h3>
               <?if(subType >= 1){ ?>
               <div id="itemButtons"><i class="material-icons" id="edit">settings</i></div>
               <?}else{?>
@@ -128,13 +128,13 @@
                   <div class='saveButtons'><button id="save" value="Save">Save</button><button id="reset" value="Reset">Reset</button></div>
                 </div>
               </div>
-              <div class="hidden" data-slot="team5"><?!= prop ?></div>
+              <div class="hidden" data-slot="poke5"><?!= prop ?></div>
             </div>
           </li>
           <li>      
             <div>
-              <? var prop = PropertiesService.getDocumentProperties().getProperty("team6")?>
-              <h3 id='team6h' contenteditable="true"><?!= JSON.parse(prop).code ?></h3>
+              <? var prop = PropertiesService.getDocumentProperties().getProperty("poke6")?>
+              <h3 id='poke6h' contenteditable="true"><?!= JSON.parse(prop).code ?></h3>
               <?if(subType >= 1){ ?>
               <div id="itemButtons"><i class="material-icons" id="edit">settings</i></div>
               <?}else{?>
@@ -149,13 +149,13 @@
                   <div class='saveButtons'><button id="save" value="Save">Save</button><button id="reset" value="Reset">Reset</button></div>
                 </div>
               </div>
-              <div class="hidden" data-slot="team6"><?!= prop ?></div>
+              <div class="hidden" data-slot="poke6"><?!= prop ?></div>
             </div>
           </li>
           <li>      
             <div>
-              <? var prop = PropertiesService.getDocumentProperties().getProperty("team7")?>
-              <h3 id='team7h' contenteditable="true"><?!= JSON.parse(prop).code ?></h3>
+              <? var prop = PropertiesService.getDocumentProperties().getProperty("poke7")?>
+              <h3 id='poke7h' contenteditable="true"><?!= JSON.parse(prop).code ?></h3>
               <?if(subType >= 1){ ?>
               <div id="itemButtons"><i class="material-icons" id="edit">settings</i></div>
               <?}else{?>
@@ -170,13 +170,13 @@
                   <div class='saveButtons'><button id="save" value="Save">Save</button><button id="reset" value="Reset">Reset</button></div>
                 </div>
               </div>
-              <div class="hidden" data-slot="team7"><?!= prop ?></div>
+              <div class="hidden" data-slot="poke7"><?!= prop ?></div>
             </div>
           </li>
           <li>      
             <div>
-              <? var prop = PropertiesService.getDocumentProperties().getProperty("team8")?>
-              <h3 id='team8h' contenteditable="true"><?!= JSON.parse(prop).code ?></h3>
+              <? var prop = PropertiesService.getDocumentProperties().getProperty("poke8")?>
+              <h3 id='poke8h' contenteditable="true"><?!= JSON.parse(prop).code ?></h3>
               <?if(subType >= 1){ ?>
               <div id="itemButtons"><i class="material-icons" id="edit">settings</i></div>
               <?}else{?>
@@ -191,13 +191,13 @@
                   <div class='saveButtons'><button id="save" value="Save">Save</button><button id="reset" value="Reset">Reset</button></div>
                 </div>
               </div>
-              <div class="hidden" data-slot="team8"><?!= prop ?></div>
+              <div class="hidden" data-slot="poke8"><?!= prop ?></div>
             </div>
           </li>
           <li>      
             <div>
-              <? var prop = PropertiesService.getDocumentProperties().getProperty("team9")?>
-              <h3 id='team9h' contenteditable="true"><?!= JSON.parse(prop).code ?></h3>
+              <? var prop = PropertiesService.getDocumentProperties().getProperty("poke9")?>
+              <h3 id='poke9h' contenteditable="true"><?!= JSON.parse(prop).code ?></h3>
               <?if(subType >= 1){ ?>
               <div id="itemButtons"><i class="material-icons" id="edit">settings</i></div>
               <?}else{?>
@@ -212,13 +212,13 @@
                   <div class='saveButtons'><button id="save" value="Save">Save</button><button id="reset" value="Reset">Reset</button></div>
                 </div>
               </div>
-              <div class="hidden" data-slot="team9"><?!= prop ?></div>
+              <div class="hidden" data-slot="poke9"><?!= prop ?></div>
             </div>
           </li>
           <li>      
             <div>
-              <? var prop = PropertiesService.getDocumentProperties().getProperty("team10")?>
-              <h3 id='team10h' contenteditable="true"><?!= JSON.parse(prop).code ?></h3>
+              <? var prop = PropertiesService.getDocumentProperties().getProperty("poke10")?>
+              <h3 id='poke10h' contenteditable="true"><?!= JSON.parse(prop).code ?></h3>
               <?if(subType >= 1){ ?>
               <div id="itemButtons"><i class="material-icons" id="edit">settings</i></div>
               <?}else{?>
@@ -233,13 +233,13 @@
                   <div class='saveButtons'><button id="save" value="Save">Save</button><button id="reset" value="Reset">Reset</button></div>
                 </div>
               </div>
-              <div class="hidden" data-slot="team10"><?!= prop ?></div>
+              <div class="hidden" data-slot="poke10"><?!= prop ?></div>
             </div>
           </li>
           <li>      
             <div>
-              <? var prop = PropertiesService.getDocumentProperties().getProperty("team11")?>
-              <h3 id='team11h' contenteditable="true"><?!= JSON.parse(prop).code ?></h3>
+              <? var prop = PropertiesService.getDocumentProperties().getProperty("poke11")?>
+              <h3 id='poke11h' contenteditable="true"><?!= JSON.parse(prop).code ?></h3>
               
               <?if(subType >= 1){ ?>
               <div id="itemButtons"><i class="material-icons" id="edit">settings</i></div>
@@ -256,13 +256,13 @@
                   <div class='saveButtons'><button id="save" value="Save">Save</button><button id="reset" value="Reset">Reset</button></div>
                 </div>
               </div>
-              <div class="hidden" data-slot="team11"><?!= prop ?></div>
+              <div class="hidden" data-slot="poke11"><?!= prop ?></div>
             </div>
           </li>
           <li>      
             <div>
-              <? var prop = PropertiesService.getDocumentProperties().getProperty("team12")?>
-              <h3 id='team12h' contenteditable="true"><?!= JSON.parse(prop).code ?></h3>
+              <? var prop = PropertiesService.getDocumentProperties().getProperty("poke12")?>
+              <h3 id='poke12h' contenteditable="true"><?!= JSON.parse(prop).code ?></h3>
               <?if(subType >= 1){ ?>
               <div id="itemButtons"><i class="material-icons" id="edit">settings</i></div>
               <?}else{?>
@@ -277,13 +277,13 @@
                   <div class='saveButtons'><button id="save" value="Save">Save</button><button id="reset" value="Reset">Reset</button></div>
                 </div>
               </div>
-              <div class="hidden" data-slot="team12"><?!= prop ?></div>
+              <div class="hidden" data-slot="poke12"><?!= prop ?></div>
             </div>
           </li>
           <li>      
             <div>
-              <? var prop = PropertiesService.getDocumentProperties().getProperty("team13")?>
-              <h3 id='team13h' contenteditable="true"><?!= JSON.parse(prop).code ?></h3>
+              <? var prop = PropertiesService.getDocumentProperties().getProperty("poke13")?>
+              <h3 id='poke13h' contenteditable="true"><?!= JSON.parse(prop).code ?></h3>
               <?if(subType >= 1){ ?>
               <div id="itemButtons"><i class="material-icons" id="edit">settings</i></div>
               <?}else{?>
@@ -298,13 +298,13 @@
                   <div class='saveButtons'><button id="save" value="Save">Save</button><button id="reset" value="Reset">Reset</button></div>
                 </div>
               </div>
-              <div class="hidden" data-slot="team13"><?!= prop ?></div>
+              <div class="hidden" data-slot="poke13"><?!= prop ?></div>
             </div>
           </li>
           <li>      
             <div>
-              <? var prop = PropertiesService.getDocumentProperties().getProperty("team14")?>
-              <h3 id='team14h' contenteditable="true"><?!= JSON.parse(prop).code ?></h3>
+              <? var prop = PropertiesService.getDocumentProperties().getProperty("poke14")?>
+              <h3 id='poke14h' contenteditable="true"><?!= JSON.parse(prop).code ?></h3>
               <?if(subType >= 1){ ?>
               <div id="itemButtons"><i class="material-icons" id="edit">settings</i></div>
               <?}else{?>
@@ -319,13 +319,13 @@
                   <div class='saveButtons'><button id="save" value="Save">Save</button><button id="reset" value="Reset">Reset</button></div>
                 </div>
               </div>
-              <div class="hidden" data-slot="team14"><?!= prop ?></div>
+              <div class="hidden" data-slot="poke14"><?!= prop ?></div>
             </div>
           </li>
           <li>      
             <div>
-              <? var prop = PropertiesService.getDocumentProperties().getProperty("team15")?>
-              <h3 id='team15h' contenteditable="true"><?!= JSON.parse(prop).code ?></h3>
+              <? var prop = PropertiesService.getDocumentProperties().getProperty("poke15")?>
+              <h3 id='poke15h' contenteditable="true"><?!= JSON.parse(prop).code ?></h3>
               <?if(subType >= 1){ ?>
               <div id="itemButtons"><i class="material-icons" id="edit">settings</i></div>
               <?}else{?>
@@ -340,13 +340,13 @@
                   <div class='saveButtons'><button id="save" value="Save">Save</button><button id="reset" value="Reset">Reset</button></div>
                 </div>
               </div>
-              <div class="hidden" data-slot="team15"><?!= prop ?></div>
+              <div class="hidden" data-slot="poke15"><?!= prop ?></div>
             </div>
           </li>
           <li>      
             <div>
-              <? var prop = PropertiesService.getDocumentProperties().getProperty("team16")?>
-              <h3 id='team16h' contenteditable="true"><?!= JSON.parse(prop).code ?></h3>
+              <? var prop = PropertiesService.getDocumentProperties().getProperty("poke16")?>
+              <h3 id='poke16h' contenteditable="true"><?!= JSON.parse(prop).code ?></h3>
               <?if(subType >= 1){ ?>
               <div id="itemButtons"><i class="material-icons" id="edit">settings</i></div>
               <?}else{?>
@@ -361,13 +361,13 @@
                   <div class='saveButtons'><button id="save" value="Save">Save</button><button id="reset" value="Reset">Reset</button></div>
                 </div>
               </div>
-              <div class="hidden" data-slot="team16"><?!= prop ?></div>
+              <div class="hidden" data-slot="poke16"><?!= prop ?></div>
             </div>
           </li>
           <li>      
             <div>
-              <? var prop = PropertiesService.getDocumentProperties().getProperty("team17")?>
-              <h3 id='team17h' contenteditable="true"><?!= JSON.parse(prop).code ?></h3>
+              <? var prop = PropertiesService.getDocumentProperties().getProperty("poke17")?>
+              <h3 id='poke17h' contenteditable="true"><?!= JSON.parse(prop).code ?></h3>
               <?if(subType >= 1){ ?>
               <div id="itemButtons"><i class="material-icons" id="edit">settings</i></div>
               <?}else{?>
@@ -382,13 +382,13 @@
                   <div class='saveButtons'><button id="save" value="Save">Save</button><button id="reset" value="Reset">Reset</button></div>
                 </div>
               </div>
-              <div class="hidden" data-slot="team17"><?!= prop ?></div>
+              <div class="hidden" data-slot="poke17"><?!= prop ?></div>
             </div>
           </li>
           <li>      
             <div>
-              <? var prop = PropertiesService.getDocumentProperties().getProperty("team18")?>
-              <h3 id='team18h' contenteditable="true"><?!= JSON.parse(prop).code ?></h3>
+              <? var prop = PropertiesService.getDocumentProperties().getProperty("poke18")?>
+              <h3 id='poke18h' contenteditable="true"><?!= JSON.parse(prop).code ?></h3>
               <?if(subType >= 1){ ?>
               <div id="itemButtons"><i class="material-icons" id="edit">settings</i></div>
               <?}else{?>
@@ -403,13 +403,13 @@
                   <div class='saveButtons'><button id="save" value="Save">Save</button><button id="reset" value="Reset">Reset</button></div>
                 </div>
               </div>
-              <div class="hidden" data-slot="team18"><?!= prop ?></div>
+              <div class="hidden" data-slot="poke18"><?!= prop ?></div>
             </div>
           </li>
           <li>      
             <div>
-              <? var prop = PropertiesService.getDocumentProperties().getProperty("team19")?>
-              <h3 id='team19h' contenteditable="true"><?!= JSON.parse(prop).code ?></h3>
+              <? var prop = PropertiesService.getDocumentProperties().getProperty("poke19")?>
+              <h3 id='poke19h' contenteditable="true"><?!= JSON.parse(prop).code ?></h3>
               <?if(subType >= 1){ ?>
               <div id="itemButtons"><i class="material-icons" id="edit">settings</i></div>
               <?}else{?>
@@ -424,13 +424,13 @@
                   <div class='saveButtons'><button id="save" value="Save">Save</button><button id="reset" value="Reset">Reset</button></div>
                 </div>
               </div>
-              <div class="hidden" data-slot="team19"><?!= prop ?></div>
+              <div class="hidden" data-slot="poke19"><?!= prop ?></div>
             </div>
           </li>
           <li>      
             <div>
-              <? var prop = PropertiesService.getDocumentProperties().getProperty("team20")?>
-              <h3 id='team20h' contenteditable="true"><?!= JSON.parse(prop).code ?></h3>
+              <? var prop = PropertiesService.getDocumentProperties().getProperty("poke20")?>
+              <h3 id='poke20h' contenteditable="true"><?!= JSON.parse(prop).code ?></h3>
               <?if(subType >= 1){ ?>
               <div id="itemButtons"><i class="material-icons" id="edit">settings</i></div>
               <?}else{?>
@@ -445,13 +445,13 @@
                   <div class='saveButtons'><button id="save" value="Save">Save</button><button id="reset" value="Reset">Reset</button></div>
                 </div>
               </div>
-              <div class="hidden" data-slot="team20"><?!= prop ?></div>
+              <div class="hidden" data-slot="poke20"><?!= prop ?></div>
             </div>
           </li>
           <li>      
             <div>
-              <? var prop = PropertiesService.getDocumentProperties().getProperty("team21")?>
-              <h3 id='team21h' contenteditable="true"><?!= JSON.parse(prop).code ?></h3>
+              <? var prop = PropertiesService.getDocumentProperties().getProperty("poke21")?>
+              <h3 id='poke21h' contenteditable="true"><?!= JSON.parse(prop).code ?></h3>
               
               <?if(subType >= 1){ ?>
               <div id="itemButtons"><i class="material-icons" id="edit">settings</i></div>
@@ -468,13 +468,13 @@
                   <div class='saveButtons'><button id="save" value="Save">Save</button><button id="reset" value="Reset">Reset</button></div>
                 </div>
               </div>
-              <div class="hidden" data-slot="team21"><?!= prop ?></div>
+              <div class="hidden" data-slot="poke21"><?!= prop ?></div>
             </div>
           </li>
           <li>      
             <div>
-              <? var prop = PropertiesService.getDocumentProperties().getProperty("team22")?>
-              <h3 id='team22h' contenteditable="true"><?!= JSON.parse(prop).code ?></h3>
+              <? var prop = PropertiesService.getDocumentProperties().getProperty("poke22")?>
+              <h3 id='poke22h' contenteditable="true"><?!= JSON.parse(prop).code ?></h3>
               <?if(subType >= 1){ ?>
               <div id="itemButtons"><i class="material-icons" id="edit">settings</i></div>
               <?}else{?>
@@ -489,13 +489,13 @@
                   <div class='saveButtons'><button id="save" value="Save">Save</button><button id="reset" value="Reset">Reset</button></div>
                 </div>
               </div>
-              <div class="hidden" data-slot="team22"><?!= prop ?></div>
+              <div class="hidden" data-slot="poke22"><?!= prop ?></div>
             </div>
           </li>
           <li>      
             <div>
-              <? var prop = PropertiesService.getDocumentProperties().getProperty("team23")?>
-              <h3 id='team23h' contenteditable="true"><?!= JSON.parse(prop).code ?></h3>
+              <? var prop = PropertiesService.getDocumentProperties().getProperty("poke23")?>
+              <h3 id='poke23h' contenteditable="true"><?!= JSON.parse(prop).code ?></h3>
               <?if(subType >= 1){ ?>
               <div id="itemButtons"><i class="material-icons" id="edit">settings</i></div>
               <?}else{?>
@@ -510,13 +510,13 @@
                   <div class='saveButtons'><button id="save" value="Save">Save</button><button id="reset" value="Reset">Reset</button></div>
                 </div>
               </div>
-              <div class="hidden" data-slot="team23"><?!= prop ?></div>
+              <div class="hidden" data-slot="poke23"><?!= prop ?></div>
             </div>
           </li>
           <li>      
             <div>
-              <? var prop = PropertiesService.getDocumentProperties().getProperty("team24")?>
-              <h3 id='team24h' contenteditable="true"><?!= JSON.parse(prop).code ?></h3>
+              <? var prop = PropertiesService.getDocumentProperties().getProperty("poke24")?>
+              <h3 id='poke24h' contenteditable="true"><?!= JSON.parse(prop).code ?></h3>
               <?if(subType >= 1){ ?>
               <div id="itemButtons"><i class="material-icons" id="edit">settings</i></div>
               <?}else{?>
@@ -531,13 +531,13 @@
                   <div class='saveButtons'><button id="save" value="Save">Save</button><button id="reset" value="Reset">Reset</button></div>
                 </div>
               </div>
-              <div class="hidden" data-slot="team24"><?!= prop ?></div>
+              <div class="hidden" data-slot="poke24"><?!= prop ?></div>
             </div>
           </li>
           <li>      
             <div>
-              <? var prop = PropertiesService.getDocumentProperties().getProperty("team25")?>
-              <h3 id='team25h' contenteditable="true"><?!= JSON.parse(prop).code ?></h3>
+              <? var prop = PropertiesService.getDocumentProperties().getProperty("poke25")?>
+              <h3 id='poke25h' contenteditable="true"><?!= JSON.parse(prop).code ?></h3>
               <?if(subType >= 1){ ?>
               <div id="itemButtons"><i class="material-icons" id="edit">settings</i></div>
               <?}else{?>
@@ -552,13 +552,13 @@
                   <div class='saveButtons'><button id="save" value="Save">Save</button><button id="reset" value="Reset">Reset</button></div>
                 </div>
               </div>
-              <div class="hidden" data-slot="team25"><?!= prop ?></div>
+              <div class="hidden" data-slot="poke25"><?!= prop ?></div>
             </div>
           </li>
           <li>      
             <div>
-              <? var prop = PropertiesService.getDocumentProperties().getProperty("team26")?>
-              <h3 id='team26h' contenteditable="true"><?!= JSON.parse(prop).code ?></h3>
+              <? var prop = PropertiesService.getDocumentProperties().getProperty("poke26")?>
+              <h3 id='poke26h' contenteditable="true"><?!= JSON.parse(prop).code ?></h3>
               <?if(subType >= 1){ ?>
               <div id="itemButtons"><i class="material-icons" id="edit">settings</i></div>
               <?}else{?>
@@ -573,13 +573,13 @@
                   <div class='saveButtons'><button id="save" value="Save">Save</button><button id="reset" value="Reset">Reset</button></div>
                 </div>
               </div>
-              <div class="hidden" data-slot="team26"><?!= prop ?></div>
+              <div class="hidden" data-slot="poke26"><?!= prop ?></div>
             </div>
           </li>
           <li>      
             <div>
-              <? var prop = PropertiesService.getDocumentProperties().getProperty("team27")?>
-              <h3 id='team27h' contenteditable="true"><?!= JSON.parse(prop).code ?></h3>
+              <? var prop = PropertiesService.getDocumentProperties().getProperty("poke27")?>
+              <h3 id='poke27h' contenteditable="true"><?!= JSON.parse(prop).code ?></h3>
               <?if(subType >= 1){ ?>
               <div id="itemButtons"><i class="material-icons" id="edit">settings</i></div>
               <?}else{?>
@@ -594,13 +594,13 @@
                   <div class='saveButtons'><button id="save" value="Save">Save</button><button id="reset" value="Reset">Reset</button></div>
                 </div>
               </div>
-              <div class="hidden" data-slot="team27"><?!= prop ?></div>
+              <div class="hidden" data-slot="poke27"><?!= prop ?></div>
             </div>
           </li>
           <li>      
             <div>
-              <? var prop = PropertiesService.getDocumentProperties().getProperty("team28")?>
-              <h3 id='team28h' contenteditable="true"><?!= JSON.parse(prop).code ?></h3>
+              <? var prop = PropertiesService.getDocumentProperties().getProperty("poke28")?>
+              <h3 id='poke28h' contenteditable="true"><?!= JSON.parse(prop).code ?></h3>
               <?if(subType >= 1){ ?>
               <div id="itemButtons"><i class="material-icons" id="edit">settings</i></div>
               <?}else{?>
@@ -615,13 +615,13 @@
                   <div class='saveButtons'><button id="save" value="Save">Save</button><button id="reset" value="Reset">Reset</button></div>
                 </div>
               </div>
-              <div class="hidden" data-slot="team28"><?!= prop ?></div>
+              <div class="hidden" data-slot="poke28"><?!= prop ?></div>
             </div>
           </li>
           <li>      
             <div>
-              <? var prop = PropertiesService.getDocumentProperties().getProperty("team29")?>
-              <h3 id='team29h' contenteditable="true"><?!= JSON.parse(prop).code ?></h3>
+              <? var prop = PropertiesService.getDocumentProperties().getProperty("poke29")?>
+              <h3 id='poke29h' contenteditable="true"><?!= JSON.parse(prop).code ?></h3>
               <?if(subType >= 1){ ?>
               <div id="itemButtons"><i class="material-icons" id="edit">settings</i></div>
               <?}else{?>
@@ -636,13 +636,13 @@
                   <div class='saveButtons'><button id="save" value="Save">Save</button><button id="reset" value="Reset">Reset</button></div>
                 </div>
               </div>
-              <div class="hidden" data-slot="team29"><?!= prop ?></div>
+              <div class="hidden" data-slot="poke29"><?!= prop ?></div>
             </div>
           </li>
           <li>      
             <div>
-              <? var prop = PropertiesService.getDocumentProperties().getProperty("team30")?>
-              <h3 id='team30h' contenteditable="true"><?!= JSON.parse(prop).code ?></h3>
+              <? var prop = PropertiesService.getDocumentProperties().getProperty("poke30")?>
+              <h3 id='poke30h' contenteditable="true"><?!= JSON.parse(prop).code ?></h3>
               <?if(subType >= 1){ ?>
               <div id="itemButtons"><i class="material-icons" id="edit">settings</i></div>
               <?}else{?>
@@ -657,7 +657,113 @@
                   <div class='saveButtons'><button id="save" value="Save">Save</button><button id="reset" value="Reset">Reset</button></div>
                 </div>
               </div>
-              <div class="hidden" data-slot="team30"><?!= prop ?></div>
+              <div class="hidden" data-slot="poke30"><?!= prop ?></div>
+            </div>
+          </li>
+          <li>      
+            <div>
+              <? var prop = PropertiesService.getDocumentProperties().getProperty("poke31")?>
+              <h3 id='poke31h' contenteditable="true"><?!= JSON.parse(prop).code ?></h3>
+              
+              <?if(subType >= 1){ ?>
+              <div id="itemButtons"><i class="material-icons" id="edit">settings</i></div>
+              <?}else{?>
+              <div id="itemButtons"><i class="material-icons" id="disabled">clear</i></div>
+              <?}?>
+              
+              <div class="form">
+                <div class="slotForm">
+                  <br><br>
+                  <strong id="triggerLabel">Template Subject: </strong><br><select id="subjectIn"><?!=templates?></select><br><br>
+                  <strong>Log Message: </strong><br><input type="text" id="logIn" placeholder="Log Message" width="250"><br><br>
+                  <div class="saveText" id="slotSaved">Saved</div>
+                  <div class='saveButtons'><button id="save" value="Save">Save</button><button id="reset" value="Reset">Reset</button></div>
+                </div>
+              </div>
+              <div class="hidden" data-slot="poke31"><?!= prop ?></div>
+            </div>
+          </li>
+          <li>      
+            <div>
+              <? var prop = PropertiesService.getDocumentProperties().getProperty("poke32")?>
+              <h3 id='poke32h' contenteditable="true"><?!= JSON.parse(prop).code ?></h3>
+              <?if(subType >= 1){ ?>
+              <div id="itemButtons"><i class="material-icons" id="edit">settings</i></div>
+              <?}else{?>
+              <div id="itemButtons"><i class="material-icons" id="disabled">clear</i></div>
+              <?}?>
+              <div class="form">
+                <div class="slotForm">
+                  <br><br>
+                  <strong id="triggerLabel">Template Subject: </strong><br><select id="subjectIn"><?!=templates?></select><br><br>
+                  <strong>Log Message: </strong><br><input type="text" id="logIn" placeholder="Log Message" width="250"><br><br>
+                  <div class="saveText" id="slotSaved">Saved</div>
+                  <div class='saveButtons'><button id="save" value="Save">Save</button><button id="reset" value="Reset">Reset</button></div>
+                </div>
+              </div>
+              <div class="hidden" data-slot="poke32"><?!= prop ?></div>
+            </div>
+          </li>
+          <li>      
+            <div>
+              <? var prop = PropertiesService.getDocumentProperties().getProperty("poke33")?>
+              <h3 id='poke33h' contenteditable="true"><?!= JSON.parse(prop).code ?></h3>
+              <?if(subType >= 1){ ?>
+              <div id="itemButtons"><i class="material-icons" id="edit">settings</i></div>
+              <?}else{?>
+              <div id="itemButtons"><i class="material-icons" id="disabled">clear</i></div>
+              <?}?>
+              <div class="form">
+                <div class="slotForm">
+                  <br><br>
+                  <strong id="triggerLabel">Template Subject: </strong><br><select id="subjectIn"><?!=templates?></select><br><br>
+                  <strong>Log Message: </strong><br><input type="text" id="logIn" placeholder="Log Message" width="250"><br><br>
+                  <div class="saveText" id="slotSaved">Saved</div>
+                  <div class='saveButtons'><button id="save" value="Save">Save</button><button id="reset" value="Reset">Reset</button></div>
+                </div>
+              </div>
+              <div class="hidden" data-slot="poke33"><?!= prop ?></div>
+            </div>
+          </li>
+          <li>      
+            <div>
+              <? var prop = PropertiesService.getDocumentProperties().getProperty("poke34")?>
+              <h3 id='poke34h' contenteditable="true"><?!= JSON.parse(prop).code ?></h3>
+              <?if(subType >= 1){ ?>
+              <div id="itemButtons"><i class="material-icons" id="edit">settings</i></div>
+              <?}else{?>
+              <div id="itemButtons"><i class="material-icons" id="disabled">clear</i></div>
+              <?}?>
+              <div class="form">
+                <div class="slotForm">
+                  <br><br>
+                  <strong id="triggerLabel">Template Subject: </strong><br><select id="subjectIn"><?!=templates?></select><br><br>
+                  <strong>Log Message: </strong><br><input type="text" id="logIn" placeholder="Log Message" width="250"><br><br>
+                  <div class="saveText" id="slotSaved">Saved</div>
+                  <div class='saveButtons'><button id="save" value="Save">Save</button><button id="reset" value="Reset">Reset</button></div>
+                </div>
+              </div>
+              <div class="hidden" data-slot="poke34"><?!= prop ?></div>
+            </div>
+          </li>
+          <li>      
+            <div>
+              <? var prop = PropertiesService.getDocumentProperties().getProperty("poke35")?>
+              <h3 id='poke35h' contenteditable="true"><?!= JSON.parse(prop).code ?></h3>
+              <?if(subType >= 1){ ?>
+              <div id="itemButtons"><i class="material-icons" id="edit">settings</i></div>
+              <?}else{?>
+              <div id="itemButtons"><i class="material-icons" id="disabled">clear</i></div>
+              <?}?>
+              <div class="form">
+                <div class="slotForm">
+                  <br><br><strong id="triggerLabel">Template Subject:</strong><br><select id="subjectIn"><?!=templates?></select><br><br>
+                  <strong>Log Message: </strong><br><input type="text" id="logIn" placeholder="Log Message" width="250"><br><br>
+                  <div class="saveText" id="slotSaved">Saved</div>
+                  <div class='saveButtons'><button id="save" value="Save">Save</button><button id="reset" value="Reset">Reset</button></div>
+                </div>
+              </div>
+              <div class="hidden" data-slot="poke35"><?!= prop ?></div>
             </div>
           </li>
           
@@ -668,3 +774,6 @@
       
     </div>  
 </html>
+
+
+

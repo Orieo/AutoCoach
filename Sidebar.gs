@@ -186,15 +186,15 @@ function sort() {
 }
 
 function slotMenu() {
-  loadPage("emailMenu");
+  loadPage("public/emailMenu");
 }
 
 function engageMenu() {
-  loadPage("poke");
+  loadPage("public/poke");
 }
 
 function teamMenu() { 
-  loadPage("teamComm");
+  loadPage("public/teamComm");
 }
 
 function loadPage(request) {
