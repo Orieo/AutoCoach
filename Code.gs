@@ -612,16 +612,13 @@ function getUserDataFromLabel(labeltext) {
       
       var tmp;
       var content = messages[i].getBody();
-      content.replace(/(&nbsp;)/,"");
+      
+      content = content.replace(/(&nbsp;)/g,"");
       // Get the plain text body of the email message
       // Implement Parsing rules using regular expressions
-     //Logger.log(content);
-      
-      if(labeltext == '21Step/Step 0'){
-        Logger.log(content); 
-      }
       
       tmp = content.match(/Name:\s*([A-Za-z0-9\s.í]+)/g)[0].substring(6);
+      Logger.log(tmp);
       if(tmp.split(" ")[0] != null){
         var firstname = tmp.split(" ")[0].capitalizeFirstLetter();
         firstname = firstname.trim();
@@ -637,7 +634,6 @@ function getUserDataFromLabel(labeltext) {
       }
       
       tmp = content.match(/Email:\s*([A-Za-z0-9_@.-]+)/g);
-      Logger.log(tmp);
       if(tmp != null){
         var email = tmp[0].substring(7);
         if(email.search(/<w?br>?/) != -1){
