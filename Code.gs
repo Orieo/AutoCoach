@@ -1,6 +1,3 @@
-var dataColumns = 7;
-var threadSearchRange = 2;
-
 var spreadsheet;
 var doneSheet;
 var inactiveSheet;
@@ -8,6 +5,7 @@ var emailSheet;
 var log;
 var doneUsers;
 var inactiveUsers;
+var range;
 var doneRange;
 var inactiveRange;
 
@@ -100,7 +98,7 @@ var engDate;
 /**
 * Initializes spreadsheet and property variables
 */
-function init() {
+function initGlobalVariables() {
   spreadsheet = SpreadsheetApp.getActiveSpreadsheet();
   doneSheet = spreadsheet.getSheetByName("Completed Clients");
   inactiveSheet = spreadsheet.getSheetByName("Inactive Clients");
@@ -118,7 +116,6 @@ function init() {
   date = dateSplit[1] + " " + dateSplit[2] + " " + dateSplit[3] + " " + dateSplit[4];
   curDate = dateSplit[1] + "/" + dateSplit[2];
   engDate = (dateObj.getMonth()+ 1)+"/"+dateObj.getDate()+"/"+dateObj.getYear()+" "+dateObj.getHours()+":"+dateObj.getMinutes()+":"+dateObj.getSeconds();
-
 
   subType = authorize();
   
@@ -218,7 +215,7 @@ function init() {
 */
 function run() {
   if(authorize() >= 1) {
-    init();
+    initGlobalVariables();
    
     if(dateObj.getHours() >= 0 && dateObj.getHours() <= 1){
       archive(); 
@@ -262,8 +259,7 @@ function run() {
       }
     }
     
-    sort();
-        
+    sort();  
   }
 }
 
@@ -322,8 +318,6 @@ function handleUsersForSlot(users, slot){
   }
 }
 
-
-
 function sendEmails(user, index) {
   var varData;
   var version = PropertiesService.getDocumentProperties().getProperty("version");
@@ -347,7 +341,6 @@ function sendEmails(user, index) {
       password: emailValues[index][16],
     };
   }
-  
   
   sendSlotFor(1, user, index, varData, slot1Obj, subType);
   sendSlotFor(2, user, index, varData, slot2Obj, subType);
@@ -601,8 +594,8 @@ function sendTeamFor(user, index, varData, emailObj, subType) {
 function getUserDataFromLabel(labeltext) {
   var users = []
   
-  var label = GmailApp.getUserLabelByName(labeltext)
-  var threads = label.getThreads(0, threadSearchRange)
+  var label = GmailApp.getUserLabelByName(labeltext);
+  var threads = label.getThreads(0, 2);
 
   
   for(var j = 0; j < threads.length; j++){
@@ -683,85 +676,6 @@ function getUserDataFromLabel(labeltext) {
   }
   return users;
 }
-
-
-/**
-* Capitalize first letter of string
-*/
-String.prototype.capitalizeFirstLetter = function() {
-  return this.charAt(0).toUpperCase() + this.slice(1).toLowerCase()
-}
-
-/**
-* Finds variable tags in a string and replaces them with data from an object
-*/
-function fillInTemplateFromObject(template, data) {
-  var emailtext = template;
-  // Search for all the variables to be replaced, for instance ${Column name}
-  var templateVars = emailtext.match(/\$\{[^\"\s]+\}/g);
-  
-  // Replace variables from the template with the actual values from the data object.
-  // If no value is available, replace with the empty string.
-  if(templateVars.length > 0){
-    for (var i = 0; i < templateVars.length; ++i) {
-      // normalizeHeader ignores ${} so we can call it directly here.
-      //Logger.log(normalizeHeader(templateVars[i]))
-      var variableData = data[normalizeHeader(templateVars[i])];
-      emailtext = emailtext.replace(templateVars[i], variableData || "");
-    }
-  }
-
-  return emailtext;
-}
-
-/**
-* Returns variable key from inside header tag
-* @return {String} key
-*/
-function normalizeHeader(header) {
-  var key = ""
-  var upperCase = false
-  for (var i = 0; i < header.length; ++i) {
-    var letter = header[i]
-    if (letter == " " && key.length > 0) {
-      upperCase = true
-      continue
-    }
-    if (!isAlnum(letter)) {
-      continue
-    }
-    if (key.length == 0 && isDigit(letter)) {
-      continue // first character must be a letter
-    }
-    if (upperCase) {
-      upperCase = false
-      key += letter.toUpperCase();
-    } else {
-      key += letter.toLowerCase();
-    }
-  }
-  return key
-}
-
-/**
-* Returns true if character is alphanumeric.
-* @return {Boolean}
-*/
-function isAlnum(char) {
-  return char >= 'A' && char <= 'Z' ||
-    char >= 'a' && char <= 'z' ||
-    isDigit(char);
-}
-
-/**
-* Returns true if the character char is a digit, false otherwise.
-* @param {Char} char
-* @return {Boolean}
-*/
-function isDigit(char) {
-  return char >= '0' && char <= '9';
-}
-
 
 function archive(){
   var len = emailValues.length;

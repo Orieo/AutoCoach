@@ -1,40 +1,20 @@
-var trigger;
-
 function onInstall(e) {
   onOpen();
 }
 
-
 function onOpen() {
-
-  var version = PropertiesService.getDocumentProperties().getProperty("version");
-
-  if(version == "New") {
-    SpreadsheetApp.getUi()
-      .createAddonMenu()
-      .addItem('Run manually', 'run')
-      .addItem('Automated emails settings', 'slotMenu')
-      .addItem('Engagement email settings', 'engageMenu')
-      .addItem('Team Communication settings', 'teamMenu')
-      .addItem('Manually Add Client', 'addUser')
-      .addItem('CSV Import Clients', 'addBatchCSV')
-      .addItem('Run Archive Manually', 'manualArchive')
-      .addItem('Enter Authorization Key', 'enterAuthKey')
-      .addItem("Reset (Admin Only)", 'reset')
-      .addToUi();
-  }else{
-    SpreadsheetApp.getUi()
-      .createAddonMenu()
-      .addItem('Run manually', 'run')
-      .addItem('Automated emails settings', 'slotMenu')
-      .addItem('Engagement email settings', 'engageMenu')
-      .addItem('Manually Add Client', 'addUser')
-      .addItem('Run Archive Manually', 'manualArchive')
-      .addItem('Enter Authorization Key', 'enterAuthKey')
-      .addItem('Switch to New Version', 'switchMethod')
-      .addItem("Reset (Admin Only)", 'reset')
-      .addToUi();
-  }
+  SpreadsheetApp.getUi()
+  .createAddonMenu()
+  .addItem('Run manually', 'run')
+  .addItem('Automated emails settings', 'slotMenu')
+  .addItem('Engagement email settings', 'engageMenu')
+  .addItem('Team Communication settings', 'teamMenu')
+  .addItem('Manually Add Client', 'addUser')
+  .addItem('CSV Import Clients', 'addBatchCSV')
+  .addItem('Run Archive Manually', 'manualArchive')
+  .addItem('Enter Authorization Key', 'enterAuthKey')
+  .addItem("Reset (Admin Only)", 'reset')
+  .addToUi();
 }
 
 
@@ -45,11 +25,6 @@ reset unless instructed to by an admin. Do you wish to continue? ', SpreadsheetA
   if(response == SpreadsheetApp.getUi().Button.YES){
     installProperties();
   }
-}
-
-function switchMethod() {
-  PropertiesService.getDocumentProperties().setProperty("version", "New");
-  SpreadsheetApp.getActive().getSheetByName("Email Tracker").insertColumnAfter(6).getRange(1, 7).setValue("Team Email");
 }
 
 function addUser(){
@@ -180,11 +155,6 @@ function installProperties(){
   PropertiesService.getDocumentProperties().setProperty('team30', '{"code":"Team 30","to":"","subject":"","log":""}');
 }
 
-
-function sort() {
-  emailSheet.sort(16, false);
-}
-
 function slotMenu() {
   loadPage("public/emailMenu");
 }
@@ -195,23 +165,6 @@ function engageMenu() {
 
 function teamMenu() { 
   loadPage("public/teamComm");
-}
-
-function loadPage(request) {
- var html = doGet(request).setTitle("AutoCoach");
- SpreadsheetApp.getUi().showSidebar(html);
-}
-
-function doGet(request) {
-  return HtmlService.createTemplateFromFile(request).evaluate();
-}
-
-function include(filename) {
-  return HtmlService.createHtmlOutputFromFile(filename).getContent();
-}
-
-function insert(filename) {
-  return HtmlService.createTemplateFromFile(filename).evaluate().getContent(); 
 }
 
 function getLabels() {
@@ -437,7 +390,6 @@ function updateDropdownTeam() {
   team28Obj = JSON.parse(PropertiesService.getDocumentProperties().getProperty("team28"));
   team29Obj = JSON.parse(PropertiesService.getDocumentProperties().getProperty("team29"));
   team30Obj = JSON.parse(PropertiesService.getDocumentProperties().getProperty("team30"));
-  
   
   teamEmails = [team1Obj, team2Obj, team3Obj, team4Obj, team5Obj, team6Obj, team7Obj, team8Obj, team9Obj, team10Obj,
                team11Obj, team12Obj, team13Obj, team14Obj, team15Obj, team16Obj, team17Obj, team18Obj, team19Obj, team20Obj,
