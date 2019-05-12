@@ -156,15 +156,15 @@ function installProperties(){
 }
 
 function slotMenu() {
-  loadPage("public/emailMenu");
+  loadPage("public/pages/emailMenu");
 }
 
 function engageMenu() {
-  loadPage("public/poke");
+  loadPage("public/pages/poke");
 }
 
 function teamMenu() { 
-  loadPage("public/teamComm");
+  loadPage("public/pages/teamComm");
 }
 
 function getLabels() {

@@ -606,7 +606,7 @@ function getUserDataFromLabel(labeltext) {
       var tmp;
       var content = messages[i].getBody();
       
-      content = content.replace(/(&nbsp;)/g,"");
+      content = content.replace(/(&nbsp;)/g," ");
       // Get the plain text body of the email message
       // Implement Parsing rules using regular expressions
       
